@@ -49,6 +49,15 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 (默认: 2. 10分钟):
 ```
+我们还需要设置一下ShadowsocksR子目录变量，打开脚本文件
+
+``` bash
+vi ssrstatus.sh
+按 I键 进入编辑模式，然后修改后按 ESC键 退出编辑模式，并输入 :wq 保存并退出
+```
+然后我们找到 第16行 的 `SSR_folder="/root/shadowsocksr/shadowsocks"` 参数，修改引号内的ShadowsocksR目录名，必须设置为 ShadowsocksR子目录的绝对路径，并且最后一位不能加上 `"/"`。
+
+注意：如果你用的是我的ShadowsocksR一键脚本，那么位置即是：`/usr/local/shadowsocksr/shadowsocks`
 
 最后 添加账号配置即可。
 
