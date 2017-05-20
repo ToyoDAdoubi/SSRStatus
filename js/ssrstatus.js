@@ -2,7 +2,6 @@
 var error = 0;
 var d = 0;
 var server_status = new Array();
-
 function timeSince(date) {
 	if(date == 0)
 		return "从未.";
@@ -29,47 +28,6 @@ function timeSince(date) {
 	else
 		return "几秒前.";
 }
-
-function bytesToSize(bytes, precision, si){
-	var ret;
-	si = typeof si !== 'undefined' ? si : 0;
-	if(si != 0) {
-		var kilobyte = 1000;
-		var megabyte = kilobyte * 1000;
-		var gigabyte = megabyte * 1000;
-		var terabyte = gigabyte * 1000;
-	} else {
-		var kilobyte = 1024;
-		var megabyte = kilobyte * 1024;
-		var gigabyte = megabyte * 1024;
-		var terabyte = gigabyte * 1024;
-	}
-
-	if ((bytes >= 0) && (bytes < kilobyte)) {
-		return bytes + ' B';
-
-	} else if ((bytes >= kilobyte) && (bytes < megabyte)) {
-		ret = (bytes / kilobyte).toFixed(precision) + ' K';
-
-	} else if ((bytes >= megabyte) && (bytes < gigabyte)) {
-		ret = (bytes / megabyte).toFixed(precision) + ' M';
-
-	} else if ((bytes >= gigabyte) && (bytes < terabyte)) {
-		ret = (bytes / gigabyte).toFixed(precision) + ' G';
-
-	} else if (bytes >= terabyte) {
-		ret = (bytes / terabyte).toFixed(precision) + ' T';
-
-	} else {
-		return bytes + ' B';
-	}
-	if(si != 0) {
-		return ret + 'B';
-	} else {
-		return ret + 'iB';
-	}
-}
-
 function uptime() {
 	$.getJSON("json/stats.json", function(result) {
 		$("#loading-notice").remove();
@@ -154,18 +112,14 @@ function uptime() {
 		$("#updated").html("更新错误.");
 	});
 }
-
 function updateTime() {
 	if (!error)
 		$("#updated").html("最后更新: " + timeSince(d));
 }
-
 uptime();
 updateTime();
-setInterval(uptime, 2000);
-setInterval(updateTime, 1000);
-
-
+setInterval(uptime, 30000);
+setInterval(updateTime, 10000);
 // styleswitcher.js
 function setActiveStyleSheet(title) {
 	var i, a, main;
@@ -176,7 +130,6 @@ function setActiveStyleSheet(title) {
 		}
 	}
 }
-
 function getActiveStyleSheet() {
 	var i, a;
 	for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
@@ -185,7 +138,6 @@ function getActiveStyleSheet() {
 	}
 	return null;
 }
-
 function getPreferredStyleSheet() {
 	var i, a;
 	for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
@@ -194,7 +146,6 @@ function getPreferredStyleSheet() {
 	}
 return null;
 }
-
 function createCookie(name,value,days) {
 	if (days) {
 		var date = new Date();
@@ -204,7 +155,6 @@ function createCookie(name,value,days) {
 	else expires = "";
 	document.cookie = name+"="+value+expires+"; path=/";
 }
-
 function readCookie(name) {
 	var nameEQ = name + "=";
 	var ca = document.cookie.split(';');
@@ -217,18 +167,15 @@ function readCookie(name) {
 	}
 	return null;
 }
-
 window.onload = function(e) {
 	var cookie = readCookie("style");
 	var title = cookie ? cookie : getPreferredStyleSheet();
 	setActiveStyleSheet(title);
 }
-
 window.onunload = function(e) {
 	var title = getActiveStyleSheet();
 	createCookie("style", title, 365);
 }
-
 var cookie = readCookie("style");
 var title = cookie ? cookie : getPreferredStyleSheet();
 setActiveStyleSheet(title);
