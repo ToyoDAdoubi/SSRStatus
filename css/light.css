@@ -19,31 +19,38 @@ body { background: #ebebeb url('../img/light.png'); }
 tr.even.expandRow > :hover { background: #F9F9F9 !important; }
 tr.odd.expandRow > :hover { background: #FFF !important; }
 .expandRow > td { padding: 0 !important; border-top: 0px !important; }
-#cpu, #ram, #hdd, #network, #traffic { min-width: 55px; max-width: 100px; }
-#type_1, tr td:nth-child(5)			{ display:none; }
+#status, tr td:nth-child(1)			{ min-width: 70px; max-width: 100px;}
+#ip, tr td:nth-child(2)			{ min-width: 50px; }
+#type_1, tr td:nth-child(5)			{ display:none;min-width: 40px; }
+#location, tr td:nth-child(6)		{ min-width: 50px; }
+#time, tr td:nth-child(7)			{ min-width: 50px; }
 
 @media only screen and (max-width: 720px) {
+	#ip, tr td:nth-child(2)			{ min-width: 50px; max-width: 120px;}
 	#type, tr td:nth-child(4)			{ display:none; }
 	#type_1, tr td:nth-child(5)			{ display:block; }
+	#time, tr td:nth-child(7)			{ min-width: 50px; max-width: 80px; }
 }
 @media only screen and (max-width: 600px) {
 	#type, tr td:nth-child(4)			{ display:none; }
 	#type_1, tr td:nth-child(5)			{ display:block; }
-	#location, tr td:nth-child(6)		{ display:none; }
+	/*#location, tr td:nth-child(6)		{ display:none; }*/
 	#time, tr td:nth-child(7)			{ display:none; }
 }
 @media only screen and (max-width: 533px) {
 	#type, tr td:nth-child(4)			{ display:none; }
 	#type_1, tr td:nth-child(5)			{ display:block; }
-	#location, tr td:nth-child(6)		{ display:none; }
+	/*#location, tr td:nth-child(6)		{ display:none; }*/
 	#time, tr td:nth-child(7)			{ display:none; }
 }
 @media only screen and (max-width: 450px) {
 	body								{ font-size: 10px; }
 	.content 							{ padding: 0; }
-	#name, tr td:nth-child(2)			{ min-width: 20px; max-width: 60px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	#status, tr td:nth-child(1)			{ min-width: 25px; max-width: 30px;}
+	#name, tr td:nth-child(2)			{ min-width: 25px; max-width: 50px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 	#type, tr td:nth-child(4)			{ display:none; }
-	#type_1, tr td:nth-child(5)			{ display:block; }
-	#location, tr td:nth-child(6)		{ display:none; }
+	#type_1, tr td:nth-child(5)			{ display:none; }
+	/*#type_1, tr td:nth-child(5)			{ display:block;min-width: 30px; }*/
+	#location, tr td:nth-child(6)		{ min-width: 25px; max-width: 50px; }
 	#time, tr td:nth-child(7)			{ display:none; }
 }
