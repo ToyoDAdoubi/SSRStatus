@@ -73,6 +73,9 @@ vi ssrstatus.sh
 # 检测所有账号配置（快捷参数）
 ./ssrstatus.sh t
 
+# 检测单独账号配置（快捷参数）
+./ssrstatus.sh o
+
 # 检测自定义账号配置（快捷参数）
 ./ssrstatus.sh a
 
