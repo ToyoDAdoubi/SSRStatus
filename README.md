@@ -5,20 +5,21 @@
 
 # 更新说明：
 
-* 20170519, 发布正式版本
+* 20170520: 修改网页文件窄屏/移动设备的显示效果，修改JS刷新时间
+* 20170519: 发布正式版本
 
 # 安装教程：     
 
 执行下面的代码下载并运行脚本。
-``` bash
-wget -N --no-check-certificate https://softs.pw/Bash/ssrstatus.sh && chmod +x ssrstatus.sh && bash ssrstatus.sh
+```Bash
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrstatus.sh && chmod +x ssrstatus.sh && bash ssrstatus.sh
 
 # 如果上面这个脚本无法下载，尝试使用备用下载：
-wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrstatus.sh && chmod +x ssrstatus.sh && bash ssrstatus.sh
+wget -N --no-check-certificate https://softs.pw/Bash/ssrstatus.sh && chmod +x ssrstatus.sh && bash ssrstatus.sh
 ```
 下载并运行脚本后会出现脚本操作菜单，选择并输入` 1 `就会开始安装。
 
-一开始会提示你输入 网站服务器的域名和端口，如果没有域名可以直接回车代表使用` 本机IP:8888`
+一开始会提示你输入 网站服务器的域名和端口，如果没有域名可以直接回车代表使用` 本机IP:8888 `。
 
 ## 简单步骤：
 
@@ -31,7 +32,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 # 注意，当你曾经安装过 服务端，同时没有卸载Caddy(HTTP服务)，那么重新安装服务端的时候，请输入 n 并回车。
 ```
 
-然后会提示你输入网站服务器的域名和端口，如果没有域名可以直接回车代表使用 本机IP:8888。
+然后会提示你输入网站服务器的域名和端口，如果没有域名可以直接回车代表使用` 本机IP:8888 `。
 
 然后部署完 HTTP服务，就会让你设置 检测间隔时间。
 
@@ -53,7 +54,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 ``` bash
 vi ssrstatus.sh
-按 I键 进入编辑模式，然后修改后按 ESC键 退出编辑模式，并输入 :wq 保存并退出
+# 按 I键 进入编辑模式，然后修改后按 ESC键 退出编辑模式，并输入 :wq 保存并退出
 ```
 然后我们找到 第16行 的 `SSR_folder="/root/shadowsocksr/shadowsocks"` 参数，修改引号内的ShadowsocksR目录名，必须设置为 ShadowsocksR子目录的绝对路径，并且最后一位不能加上 `"/"`。
 
@@ -104,30 +105,23 @@ SSRStatus 一键安装管理脚本 [vx.x.x]
 
 请输入数字 [0-9]:
 ```
-# 其他操作
+## 其他操作
 
-Caddy（HTTP服务）：
+### Caddy（HTTP服务）：
 
-
-启动：service caddy start
-
-停止：service caddy stop
-
-重启：service caddy restart
-
-查看状态：service caddy status
-
-Caddy配置文件：/usr/local/caddy/Caddyfile
+* 启动：service caddy start
+* 停止：service caddy stop
+* 重启：service caddy restart
+* 查看状态：service caddy status
+* Caddy配置文件：/usr/local/caddy/Caddyfile
 
 默认脚本只能一开始安装的时候设置配置文件，更多的Caddy使用方法，可以参考这些教程：https://doub.io/search/caddy
 
 ——————————————————————————————————————
 
-网页文件：/usr/local/SSRStatus
-
-配置文件：ssr_status.conf（和脚本在同一个目录中）
-
-查看日志：cat ssr_status.log（和脚本在同一个目录中）
+* 网页文件：/usr/local/SSRStatus
+* 配置文件：ssr_status.conf（和脚本在同一个目录中）
+* 查看日志：cat ssr_status.log（和脚本在同一个目录中）
 
 # 其他说明
 
@@ -142,16 +136,18 @@ Caddy配置文件：/usr/local/caddy/Caddyfile
 ``` bash
 ss/ssr链接###名称###位置###禁用状态
 
- 示例：
+# 示例：
 ssr://xxxxxxxx###DOUBI###Japen###fales
+
+# fales代表禁用状态否，即启用，true 反之。
 ```
 
 然后可以这样快速写入配置文件：
 
 ``` bash
-echo -e "ssr://xxxxxxxx###DOUBI###Japen###fales
-ssr://xxxxxxxx###DOUBI###Japen###fales
-ssr://xxxxxxxx###DOUBI###Japen###fales" >> ssr_status.conf
+echo -e "ssr://xxxxxxxx###DOUBI1###Japen###fales
+ssr://yyyyyyyy###DOUBI2###Hong Kong###true
+ssr://zzzzzzzz###DOUBI3###洛杉矶(支持中文，只要你系统支持显示和输入)###fales" >> ssr_status.conf
 ```
 
 # 相关开源项目： 
