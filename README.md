@@ -1,5 +1,7 @@
 # SSRStatus
 
+![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+
 * SSRStatus是一个可以在线监控Shadowsocks/ShadowsocksR账号的云探针、云监控探针~，该云监控的网页文件基于ServerStatus（ https://github.com/ToyoDAdoubi/ServerStatus-Toyo/ ）项目。
 * 在线演示：https://sstz.toyoo.ml/
 * 我的博客：https://doub.io/shell-jc5/
