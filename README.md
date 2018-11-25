@@ -18,7 +18,7 @@
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrstatus.sh && chmod +x ssrstatus.sh && bash ssrstatus.sh
 
 # 如果上面这个脚本无法下载，尝试使用备用下载：
-wget -N --no-check-certificate https://softs.loan/Bash/ssrstatus.sh && chmod +x ssrstatus.sh && bash ssrstatus.sh
+wget -N --no-check-certificate https://softsmirror.cf/Bash/ssrstatus.sh && chmod +x ssrstatus.sh && bash ssrstatus.sh
 ```
 下载并运行脚本后会出现脚本操作菜单，选择并输入` 1 `就会开始安装。
 
